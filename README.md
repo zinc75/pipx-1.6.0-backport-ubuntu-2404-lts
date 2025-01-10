@@ -117,11 +117,11 @@ If you prefer to build the package from source, follow these steps:
 
 ## Contribution and Feedback
 
-Since this is basically only a backport of the .deb available for Ubuntu 24.10 for the pipx package, and since I'm neither an Ubuntu dev nor a pipx developer, feedback on the usage of pipx should be redirected to the pypa/pipx repository: https://github.com/pypa/pipx/issues, following the rules available at https://github.com/zinc75/pipx-1.6.0-backport-ubuntu-2404-lts/blob/02ca901aab1622cfe3516d89341f2e726df447f4/python-pipx-1.6.0/CHANGELOG.md 
+Since this is basically only a backport of the .deb available for Ubuntu 24.10 for the pipx package, and since I'm neither an Ubuntu dev nor a pipx developer, feedback on the usage of pipx should be redirected to the pypa/pipx repository: https://github.com/pypa/pipx/issues, following the rules available in the [`python-pipx-1.6.0/CONTRIBUTING.md`](https://github.com/zinc75/pipx-1.6.0-backport-ubuntu-2404-lts/blob/main/python-pipx-1.6.0/CONTRIBUTING.md) file.
 
 ---
 
 ## License
 
-The contents of this repository follow the original MIT licensing of the `pipx` package. Refer to the `LICENSE` file in the source directory for more details.
+The contents of this repository follow the original MIT licensing of the `pipx` package. Refer to the [`python-pipx-1.6.0/LICENSE`](https://github.com/zinc75/pipx-1.6.0-backport-ubuntu-2404-lts/blob/main/python-pipx-1.6.0/LICENSE`] file in the source directory for more details.
 
