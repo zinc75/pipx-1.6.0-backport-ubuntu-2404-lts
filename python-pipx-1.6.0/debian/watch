@@ -1,0 +1,9 @@
+version=4
+# check: uscan --report
+# update: gbp import-orig --upstream-vcs-tag=vX.Y.Z --uscan
+
+opts=\
+filenamemangle=s/.*?(@ANY_VERSION@@ARCHIVE_EXT@)/@PACKAGE@-$1/,\
+uversionmangle=s/(rc|a|b|c)/~$1/ \
+https://github.com/pypa/pipx/tags \
+.*?@ANY_VERSION@@ARCHIVE_EXT@

@@ -1,0 +1,36 @@
+Format: 1.8
+Date: Thu, 06 Jun 2024 11:54:59 +0100
+Source: python-pipx
+Binary: pipx
+Built-For-Profiles: noudeb
+Architecture: source all
+Version: 1.6.0-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Changed-By: Stefano Rivera <stefanor@debian.org>
+Description:
+ pipx       - execute binaries from Python packages in isolated environments
+Changes:
+ python-pipx (1.6.0-1) unstable; urgency=medium
+ .
+   * New upstream release.
+   * Refresh patches.
+Checksums-Sha1:
+ 19bcdbe21af18b5676aad1805f6e0cc2d58dc60e 1485 python-pipx_1.6.0-1.dsc
+ bee059476cb03bb0aa24e9de55514c81407cb385 389164 python-pipx_1.6.0.orig.tar.gz
+ a77ece13b8523e509ef922e1d56142072f5af49c 9228 python-pipx_1.6.0-1.debian.tar.xz
+ f2d6d2e2b7f683d1f37b51494956a0838ce776b4 824804 pipx_1.6.0-1_all.deb
+ 8a6e984304c38f2b1593add59ea36611a53f212a 9237 python-pipx_1.6.0-1_amd64.buildinfo
+Checksums-Sha256:
+ 2332dcc518c1c11a067a83a9602c26dfa41c29549c0edca7bfd306452d3430de 1485 python-pipx_1.6.0-1.dsc
+ 427bd838bff3c4e5efcc39858eb5e1b86cc5e3468ad939ae44312ac5bb3405ad 389164 python-pipx_1.6.0.orig.tar.gz
+ c61cd48bb6896da8dc905b86a4dae1c499f1c65cbb1182a3d0e111bad905eb0d 9228 python-pipx_1.6.0-1.debian.tar.xz
+ d38e16af7fecb32b5842497401ed0ea0d450e7aeeb299cf7356c5d8a2c6135cb 824804 pipx_1.6.0-1_all.deb
+ 8dfb324d0f073960852c13ce8f71deb5a2f16d1e5e886476e0bcb7e429c0e056 9237 python-pipx_1.6.0-1_amd64.buildinfo
+Files:
+ 5401965481f585360bfa4c95feda51d9 1485 python optional python-pipx_1.6.0-1.dsc
+ 4a2b828d3b03f1cabadae1e52e70b3e1 389164 python optional python-pipx_1.6.0.orig.tar.gz
+ 2971b7a5e6dd4744064b0c9eb46dafc9 9228 python optional python-pipx_1.6.0-1.debian.tar.xz
+ edb29dc599a2c076a16d5d864f2e4750 824804 python optional pipx_1.6.0-1_all.deb
+ d663da216d23651ccb2b96ff07db8e03 9237 python optional python-pipx_1.6.0-1_amd64.buildinfo

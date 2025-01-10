@@ -1,0 +1,67 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Sun, 31 Mar 2024 12:34:57 -0400
+Subject: docs: Replace markdown-gfm-admonition with callouts
+
+markdown-gfm-admonition is not packaged for Debian, but callouts is.
+
+Forwarded: not-needed
+---
+ docs/how-pipx-works.md | 4 +---
+ docs/installation.md   | 8 ++------
+ mkdocs.yml             | 2 +-
+ 3 files changed, 4 insertions(+), 10 deletions(-)
+
+diff --git a/docs/how-pipx-works.md b/docs/how-pipx-works.md
+index caa74ce..2889863 100644
+--- a/docs/how-pipx-works.md
++++ b/docs/how-pipx-works.md
+@@ -112,9 +112,7 @@ If you wish to provide documentation via `man` pages on UNIX-like systems then t
+     )
+     ```
+ 
+-    > [!WARNING]
+-    >
+-    > The `data-files` keyword is "discouraged" in the [setuptools documentation](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#setuptools-specific-configuration) but there is no alternative if `man` pages are a requirement.
++WARNING: The `data-files` keyword is "discouraged" in the [setuptools documentation](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#setuptools-specific-configuration) but there is no alternative if `man` pages are a requirement.
+ 
+ === "pdm-backend"
+ 
+diff --git a/docs/installation.md b/docs/installation.md
+index 8fb5344..3c7d1d9 100644
+--- a/docs/installation.md
++++ b/docs/installation.md
+@@ -82,9 +82,7 @@ you did not get the warning):
+ This will add both the above mentioned path and the `%USERPROFILE%\.local\bin` folder to your search path. Restart your
+ terminal session and verify `pipx` does run.
+ 
+-> [!WARNING]
+->
+-> It is not recommended to install `pipx` via `pipx`. If you'd like to do this anyway, take a look at the
++> WARNING: It is not recommended to install `pipx` via `pipx`. If you'd like to do this anyway, take a look at the
+ > [`pipx-in-pipx`](https://github.com/mattsb42-meta/pipx-in-pipx) project and read about the limitations there.
+ 
+ ### Using pipx without installing (via zipapp)
+@@ -141,9 +139,7 @@ sudo PIPX_HOME=/opt/pipx PIPX_BIN_DIR=/usr/local/bin PIPX_MAN_DIR=/usr/local/sha
+ # Example: $ sudo PIPX_HOME=/opt/pipx PIPX_BIN_DIR=/usr/local/bin PIPX_MAN_DIR=/usr/local/share/man pipx install cowsay
+ ```
+ 
+-> [!NOTE]
+->
+-> After version 1.2.0, the default pipx paths have been moved from `~/.local/pipx` to specific user data directories on
++> NOTE: After version 1.2.0, the default pipx paths have been moved from `~/.local/pipx` to specific user data directories on
+ > each platform using [platformdirs](https://pypi.org/project/platformdirs/) library
+ >
+ > | Old Path               | New Path                                   |
+diff --git a/mkdocs.yml b/mkdocs.yml
+index c1f516b..ff8e7de 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -35,7 +35,7 @@ nav:
+   - Changelog: "changelog.md"
+ 
+ markdown_extensions:
+-  - markdown_gfm_admonition  # GitHub's admonition (alert) syntax
++  - callouts
+   - footnotes
+   - pymdownx.superfences
+   - pymdownx.tabbed:

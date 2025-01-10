@@ -1,0 +1,7 @@
+python-pipx (0.12.0.4-1) unstable; urgency=medium
+
+  * ABI change:
+    Now use 'pipx BINARY' to run a binary in an ephemeral environment.
+    Previous syntax 'pipx run BINARY' no longer works.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 11 Feb 2019 22:41:19 +0100

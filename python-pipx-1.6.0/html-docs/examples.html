@@ -1,0 +1,806 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="execute binaries from Python packages in isolated environments">
+      
+      
+      
+      
+        <link rel="prev" href="troubleshooting.html">
+      
+      
+        <link rel="next" href="comparisons.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Examples - pipx</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pipx-install-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="pipx" class="md-header__button md-logo" aria-label="pipx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pipx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pypa/pipx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pypa/pipx
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="pipx" class="md-nav__button md-logo" aria-label="pipx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    pipx
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pypa/pipx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pypa/pipx
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="troubleshooting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="examples.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-install-examples" class="md-nav__link">
+    pipx install examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-run-examples" class="md-nav__link">
+    pipx run examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-inject-example" class="md-nav__link">
+    pipx inject example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-list-example" class="md-nav__link">
+    pipx list example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-install-all-example" class="md-nav__link">
+    pipx install-all example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-upgrade-shared-examples" class="md-nav__link">
+    pipx upgrade-shared examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparisons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparison to Other Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-pipx-works.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How pipx works
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="programs-to-try.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programs to Try
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-install-examples" class="md-nav__link">
+    pipx install examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-run-examples" class="md-nav__link">
+    pipx run examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-inject-example" class="md-nav__link">
+    pipx inject example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-list-example" class="md-nav__link">
+    pipx list example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-install-all-example" class="md-nav__link">
+    pipx install-all example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx-upgrade-shared-examples" class="md-nav__link">
+    pipx upgrade-shared examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Examples</h1>
+
+<h2 id="pipx-install-examples"><code>pipx install</code> examples</h2>
+<div class="highlight"><pre><span></span><code>pipx install pycowsay
+pipx install --python python3.10 pycowsay
+pipx install --python 3.12 pycowsay
+pipx install --fetch-missing-python --python 3.12 pycowsay
+pipx install git+https://github.com/psf/black
+pipx install git+https://github.com/psf/black.git@branch-name
+pipx install git+https://github.com/psf/black.git@git-hash
+pipx install git+ssh://&lt;username&gt;@&lt;private-repo-domain&gt;/&lt;path-to-package.git&gt;
+pipx install https://github.com/psf/black/archive/18.9b0.zip
+pipx install black[d]
+pipx install --preinstall ansible-lint --preinstall mitogen ansible-core
+pipx install &#39;black[d] @ git+https://github.com/psf/black.git@branch-name&#39;
+pipx install --suffix @branch-name &#39;black[d] @ git+https://github.com/psf/black.git@branch-name&#39;
+pipx install --include-deps jupyter
+pipx install --pip-args=&#39;--pre&#39; poetry
+pipx install --pip-args=&#39;--index-url=&lt;private-repo-host&gt;:&lt;private-repo-port&gt; --trusted-host=&lt;private-repo-host&gt;:&lt;private-repo-port&gt;&#39; private-repo-package
+pipx install --index-url https://test.pypi.org/simple/ --pip-args=&#39;--extra-index-url https://pypi.org/simple/&#39; some-package
+pipx --global install pycowsay
+pipx install .
+pipx install path/to/some-project
+</code></pre></div>
+<h2 id="pipx-run-examples"><code>pipx run</code> examples</h2>
+<p>pipx enables you to test various combinations of Python versions and package versions in ephemeral environments:</p>
+<div class="highlight"><pre><span></span><code>pipx run BINARY  # latest version of binary is run with python3
+pipx run --spec PACKAGE==2.0.0 BINARY  # specific version of package is run
+pipx run --python python3.10 BINARY  # Installed and invoked with specific Python version
+pipx run --python python3.9 --spec PACKAGE=1.7.3 BINARY
+pipx run --spec git+https://url.git BINARY  # latest version on default branch is run
+pipx run --spec git+https://url.git@branch BINARY
+pipx run --spec git+https://url.git@hash BINARY
+pipx run pycowsay moo
+pipx --version  # prints pipx version
+pipx run pycowsay --version  # prints pycowsay version
+pipx run --python pythonX pycowsay
+pipx run pycowsay==2.0 --version
+pipx run pycowsay[dev] --version
+pipx run --spec git+https://github.com/psf/black.git black
+pipx run --spec git+https://github.com/psf/black.git@branch-name black
+pipx run --spec git+https://github.com/psf/black.git@git-hash black
+pipx run --spec https://github.com/psf/black/archive/18.9b0.zip black --help
+pipx run https://gist.githubusercontent.com/cs01/fa721a17a326e551ede048c5088f9e0f/raw/6bdfbb6e9c1132b1c38fdd2f195d4a24c540c324/pipx-demo.py
+</code></pre></div>
+<p>You can run local files, or scripts hosted on the internet, and you can run them with arguments:</p>
+<div class="highlight"><pre><span></span><code>pipx run test.py
+pipx run test.py 1 2 3
+pipx run https://example.com/test.py
+pipx run https://example.com/test.py 1 2 3
+</code></pre></div>
+<p>A simple filename is ambiguous - it could be a file, or a package on PyPI. It will be treated as a filename if the file
+exists, or as a package if not. To force interpretation as a local path, use <code>--path</code>, and to force interpretation as a
+package name, use <code>--spec</code> (with the PyPI name of the package).</p>
+<div class="highlight"><pre><span></span><code>pipx run myscript.py # Local file, if myscript.py exists
+pipx run doesnotexist.py # Package, because doesnotexist.py is not a local file
+pipx run --path test.py # Always a local file
+pipx run --spec test-py test.py # Always a package on PyPI
+</code></pre></div>
+<p>You can also run scripts that have dependencies:</p>
+<p>If you have a script <code>test.py</code> that needs 3rd party libraries, you can add <a href="https://packaging.python.org/en/latest/specifications/inline-script-metadata/">inline script metadata</a> in the style of PEP 723.</p>
+<div class="highlight"><pre><span></span><code># test.py
+
+# /// script
+# dependencies = [&quot;requests&quot;]
+# ///
+
+import sys
+import requests
+project = sys.argv[1]
+pipx_data = requests.get(f&quot;https://pypi.org/pypi/{project}/json&quot;).json()
+print(pipx_data[&quot;info&quot;][&quot;version&quot;])
+</code></pre></div>
+<p>Then you can run it as follows:</p>
+<div class="highlight"><pre><span></span><code>&gt; pipx run test.py pipx
+1.1.0
+</code></pre></div>
+<h2 id="pipx-inject-example"><code>pipx inject</code> example</h2>
+<p>One use of the inject command is setting up a REPL with some useful extra packages.</p>
+<div class="highlight"><pre><span></span><code>&gt; pipx install ptpython
+&gt; pipx inject ptpython requests pendulum
+</code></pre></div>
+<p>After running the above commands, you will be able to import and use the <code>requests</code> and <code>pendulum</code> packages inside a
+<code>ptpython</code> repl.</p>
+<p>Equivalently, the extra packages can be listed in a text file (e.g. <code>useful-packages.txt</code>).
+Each line is a separate package specifier with the same syntax as the command line.
+Comments are supported with a <code>#</code> prefix.
+Hence, the syntax is a strict subset of the pip <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/">requirements file format</a> syntax.</p>
+<div class="highlight"><pre><span></span><code># Additional packages
+requests
+
+pendulum # for easier datetimes
+</code></pre></div>
+<p>This file can then be given to <code>pipx inject</code> on the command line:</p>
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>pipx<span class="w"> </span>inject<span class="w"> </span>ptpython<span class="w"> </span>--requirement<span class="w"> </span>useful-packages.txt
+<span class="c1"># or:</span>
+&gt;<span class="w"> </span>pipx<span class="w"> </span>inject<span class="w"> </span>ptpython<span class="w"> </span>-r<span class="w"> </span>useful-packages.txt
+</code></pre></div>
+<p>Note that these options can be repeated and used together, e.g.</p>
+<div class="highlight"><pre><span></span><code>&gt; pipx inject ptpython package-1 -r extra-packages-1.txt -r extra-packages-2.txt package-2
+</code></pre></div>
+<p>If you require full pip functionality, then use the <code>runpip</code> command instead;
+however, the installed packages won't be recognised as "injected".</p>
+<h2 id="pipx-list-example"><code>pipx list</code> example</h2>
+<div class="highlight"><pre><span></span><code>&gt; pipx list
+venvs are in /Users/user/.local/pipx/venvs
+binaries are exposed on your $PATH at /Users/user/.local/bin
+   package black 18.9b0, Python 3.10.0
+    - black
+    - blackd
+   package pipx 0.10.0, Python 3.10.0
+    - pipx
+
+&gt; pipx list --short
+black 18.9b0
+pipx 0.10.0
+</code></pre></div>
+<h2 id="pipx-install-all-example"><code>pipx install-all</code> example</h2>
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>pipx<span class="w"> </span>list<span class="w"> </span>--json<span class="w"> </span>&gt;<span class="w"> </span>pipx.json
+&gt;<span class="w"> </span>pipx<span class="w"> </span>instal-all<span class="w"> </span>pipx.json
+<span class="s1">&#39;black&#39;</span><span class="w"> </span>already<span class="w"> </span>seems<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed.<span class="w"> </span>Not<span class="w"> </span>modifying<span class="w"> </span>existing<span class="w"> </span>installation<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;/usr/local/pipx/venvs/black&#39;</span>.<span class="w"> </span>Pass<span class="w"> </span><span class="s1">&#39;--force&#39;</span><span class="w"> </span>to<span class="w"> </span>force<span class="w"> </span>installation.
+<span class="s1">&#39;pipx&#39;</span><span class="w"> </span>already<span class="w"> </span>seems<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed.<span class="w"> </span>Not<span class="w"> </span>modifying<span class="w"> </span>existing<span class="w"> </span>installation<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;/usr/local/pipx/venvs/black&#39;</span>.<span class="w"> </span>Pass<span class="w"> </span><span class="s1">&#39;--force&#39;</span><span class="w"> </span>to<span class="w"> </span>force<span class="w"> </span>installation.
+&gt;<span class="w"> </span>pipx<span class="w"> </span>install-all<span class="w"> </span>pipx.json<span class="w"> </span>--force
+Installing<span class="w"> </span>to<span class="w"> </span>existing<span class="w"> </span>venv<span class="w"> </span><span class="s1">&#39;black&#39;</span>
+<span class="w">  </span>installed<span class="w"> </span>package<span class="w"> </span>black<span class="w"> </span><span class="m">24</span>.3.0,<span class="w"> </span>installed<span class="w"> </span>using<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.12
+<span class="w">  </span>These<span class="w"> </span>apps<span class="w"> </span>are<span class="w"> </span>now<span class="w"> </span>globally<span class="w"> </span>available
+<span class="w">    </span>-<span class="w"> </span>black
+<span class="w">    </span>-<span class="w"> </span>blackd
+<span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🌟<span class="w"> </span>✨
+Installing<span class="w"> </span>to<span class="w"> </span>existing<span class="w"> </span>venv<span class="w"> </span><span class="s1">&#39;pipx&#39;</span>
+<span class="w">  </span>installed<span class="w"> </span>package<span class="w"> </span>pipx<span class="w"> </span><span class="m">1</span>.4.3,<span class="w"> </span>installed<span class="w"> </span>using<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.12
+<span class="w">  </span>These<span class="w"> </span>apps<span class="w"> </span>are<span class="w"> </span>now<span class="w"> </span>globally<span class="w"> </span>available
+<span class="w">    </span>-<span class="w"> </span>pipx
+<span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🌟<span class="w"> </span>✨
+</code></pre></div>
+<h2 id="pipx-upgrade-shared-examples"><code>pipx upgrade-shared</code> examples</h2>
+<p>One use of the upgrade-shared command is to force a <code>pip</code> upgrade.</p>
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>pipx<span class="w"> </span>upgrade-shared
+</code></pre></div>
+<p>This example pins <code>pip</code> (temporarily, until the next automatic upgrade, if that is not explicitly turned off) to a specific version.</p>
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>pipx<span class="w"> </span>upgrade-shared<span class="w"> </span>--pip-args<span class="o">=</span><span class="nv">pip</span><span class="o">==</span><span class="m">24</span>.0
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

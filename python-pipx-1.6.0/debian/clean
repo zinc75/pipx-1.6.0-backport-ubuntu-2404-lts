@@ -1,0 +1,5 @@
+docs/docs.md
+html-docs/
+pipx.1
+pipx.fish
+src/pipx/version.py

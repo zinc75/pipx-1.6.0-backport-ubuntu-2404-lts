@@ -1,0 +1,28 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Wed, 29 Sep 2021 10:19:05 -0700
+Subject: docs: Remove badges
+
+To make docs standalone and protect the privacy of readers.
+
+Forwarded: not-needed
+---
+ README.md | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/README.md b/README.md
+index 5779a2a..d9d8866 100644
+--- a/README.md
++++ b/README.md
+@@ -12,12 +12,6 @@
+ </a>
+ </p>
+ 
+-<p align="center">
+-<a href="https://github.com/pypa/pipx/actions">
+-<img src="https://github.com/pypa/pipx/workflows/tests/badge.svg?branch=main" alt="image" /></a> <a href="https://badge.fury.io/py/pipx"><img src="https://badge.fury.io/py/pipx.svg" alt="PyPI version"></a> <a href="https://badge.fury.io/py/pipx"><img src="https://static.pepy.tech/badge/pipx"></a>
+-
+-</p>
+-
+ **Documentation**: <https://pipx.pypa.io>
+ 
+ **Source Code**: <https://github.com/pypa/pipx>

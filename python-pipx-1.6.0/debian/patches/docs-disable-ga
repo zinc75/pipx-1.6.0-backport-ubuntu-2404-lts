@@ -1,0 +1,26 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Wed, 29 Sep 2021 10:02:32 -0700
+Subject: docs: Disable Google Analytics
+
+For the privacy of local users, disable google analytics.
+
+Forwarded: not-needed
+---
+ mkdocs.yml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 2930b8b..c1f516b 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -19,10 +19,6 @@ theme:
+ repo_name: pypa/pipx
+ repo_url: https://github.com/pypa/pipx
+ edit_uri: edit/main/docs/
+-extra:
+-  analytics:
+-    provider: 'google'
+-    property: 'UA-90243909-2'
+ 
+ 
+ nav:

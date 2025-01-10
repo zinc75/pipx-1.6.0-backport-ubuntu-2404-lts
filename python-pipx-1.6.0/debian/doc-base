@@ -1,0 +1,12 @@
+Document: pipx
+Title: pipx Documentation
+Abstract:
+ pipx - Install and Run Python Applications in Isolated Environments
+Section: System/Package Management
+
+Format: HTML
+Index: /usr/share/doc/pipx/html-docs/index.html
+Files: /usr/share/doc/pipx/html-docs/*.html
+
+Format: Text
+Files: /usr/share/doc/pipx/docs/*.md /usr/share/doc/pipx/docs/*.md.gz

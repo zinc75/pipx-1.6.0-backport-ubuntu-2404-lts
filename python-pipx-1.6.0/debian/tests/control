@@ -1,0 +1,8 @@
+Test-Command: prove debian/tests/*.t
+Depends: libtest-command-simple-perl, perl, @
+
+# Runs code from the Internet, so disabled by default, but useful to verify new
+# releases:
+#Tests: upstream-test-suite
+#Depends: python3-pip, python3-pytest, @
+#Restrictions: allow-stderr, isolation-machine, needs-internet, rw-build-tree

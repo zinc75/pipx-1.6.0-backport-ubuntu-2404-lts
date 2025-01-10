@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+# WARNING: This test suite downloads and executes code from the Internet, so
+# execute it with care.
+
+# If running repeatedly, you can seed the package cache with
+# debian/package-cache.tar
+
+set -eux
+
+export PATH=$PATH:$HOME/.local/bin
+pipx install pypiserver
+
+mkdir -p .pipx_tests/package_cache
+[ -e debian/package-cache.tar ] && tar -xf debian/package-cache.tar
+python3 scripts/update_package_cache.py testdata/tests_packages .pipx_tests/package_cache
+
+python3 -m pytest -v tests

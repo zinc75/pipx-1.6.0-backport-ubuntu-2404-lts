@@ -1,0 +1,174 @@
+python-pipx (1.6.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+
+ -- Stefano Rivera <stefanor@debian.org>  Thu, 06 Jun 2024 11:54:59 +0100
+
+python-pipx (1.5.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Ship a fish command completion. (Closes: #1055321)
+  * Patch: Avoid needing markdown-gfm-admonition.
+
+ -- Stefano Rivera <stefanor@debian.org>  Sun, 31 Mar 2024 12:45:12 -0400
+
+python-pipx (1.4.3-1) unstable; urgency=medium
+
+  * New upstream point-release.
+  * Drop patches logging-level-default and fix-test-list, superseded upstream.
+  * Bump copyright years.
+  * Build-Depend on mkdocs-macros-plugin, now required upstream.
+
+ -- Stefano Rivera <stefanor@debian.org>  Sat, 10 Feb 2024 21:53:59 -0400
+
+python-pipx (1.4.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Patches: Reduce default log verbosity (a regression in 1.4.0).
+
+ -- Stefano Rivera <stefanor@debian.org>  Mon, 01 Jan 2024 18:55:18 -0400
+
+python-pipx (1.3.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+  * scripts/generate_docs.py was renamed, update rules.
+  * Build-Depend on python3-hatch-vcs, python3-platformdirs, python3-tomli,
+    mkdocs-gen-files, mkdocs-material.
+  * Use mkdocs-gen-files in the docs build.
+  * Clean version.py.
+  * Explicitly skip the upstream tests.
+
+ -- Stefano Rivera <stefanor@debian.org>  Tue, 26 Dec 2023 17:22:06 -0400
+
+python-pipx (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Stefano Rivera <stefanor@debian.org>  Mon, 23 Oct 2023 13:36:00 +0200
+
+python-pipx (1.2.0-2) unstable; urgency=medium
+
+  * Clean correctly.
+
+ -- Stefano Rivera <stefanor@debian.org>  Sat, 10 Jun 2023 18:03:32 -0400
+
+python-pipx (1.2.0-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Stefano Rivera <stefanor@debian.org>  Sat, 25 Mar 2023 21:04:50 -0400
+
+python-pipx (1.1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+  * PEP-440 compatible version mangling in watch file.
+  * Switch to building with hatchling.
+  * Drop colorama Build-Depends, only needed on Windows.
+  * Bump Standards-Version to 4.6.2, no changes needed.
+  * Bump copyright years.
+
+ -- Stefano Rivera <stefanor@debian.org>  Wed, 08 Feb 2023 18:52:20 -0400
+
+python-pipx (1.0.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patchs generate-manpage, reproducible-docs. Superseded upstream.
+
+ -- Stefano Rivera <stefanor@debian.org>  Tue, 04 Jan 2022 09:50:07 -0400
+
+python-pipx (0.17.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+  * Drop patch release-version, superseded upstream.
+  * Drop patch pytest-pre-620, no longer needed.
+  * Build with pybuild's pyproject plugin.
+  * Patch: build the manpage reproducibly. (Closes: #995865)
+
+ -- Stefano Rivera <stefanor@debian.org>  Sat, 01 Jan 2022 10:14:37 -0400
+
+python-pipx (0.16.5-1) unstable; urgency=medium
+
+  [ Stefano Rivera ]
+  * New upstream point-release.
+  * Patch docs:
+    - Disable Google Analytics.
+    - Use local image assets.
+    - Remove badges.
+  * Build and install documentation.
+  * Update and tidy up debian/copyright.
+  * Bump Standards-Version to 4.6.0, no changes needed.
+  * Patch: Set final release, upstream forgot to run their pre-release script.
+  * Build manpage with python3-argparse-manpage. (Closes: #960996)
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Stefano Rivera <stefanor@debian.org>  Thu, 30 Sep 2021 12:58:59 -0700
+
+python-pipx (0.16.4-1) unstable; urgency=medium
+
+  * New upstream point-release.
+
+ -- Stefano Rivera <stefanor@debian.org>  Mon, 09 Aug 2021 12:51:40 -0400
+
+python-pipx (0.16.3-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #976146, #969985)
+  * Drop all patches, superseded upstream.
+  * Take over maintenance of python-pipx and bring it into the Debian Python
+    Team. Thanks for bringing pipx so far, Jonas.
+  * Update Homepage, watch file, etc. to the new PyPA home.
+  * Add Build-Depends: python3-argcomplete, python3-colorama,
+    python3-packaging, python3-userpath.
+  * Remove Build-Depends/Depends: black, flake8, mypy, python3-distutils,
+    python3-jinja2, python3-pkg-resources.
+  * Simplify debian/rules.
+  * Bump Standards-Version to 4.5.1, no changes needed.
+  * Patch: Support pytest < 6.2.0.
+  * Autopkgtest: Test pipx list (would have caught #976146).
+
+ -- Stefano Rivera <stefanor@debian.org>  Thu, 10 Jun 2021 07:32:01 -0400
+
+python-pipx (0.12.3.1-3) unstable; urgency=medium
+
+  * use debhelper compatibility level 12 (not 9);
+    build-depend on debhelper-compat dh-sequence-python3
+    (not debhelper dh-python)
+  * fix depend on python3-venv;
+    closes: bug#954939, thanks to Joel Cross
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 25 Mar 2020 16:44:46 +0100
+
+python-pipx (0.12.3.1-2) unstable; urgency=medium
+
+  * fix ship file NEWS (not NEWS.Debian)
+  * add patch cherry-picked upstream to use shutil.which
+    (not distutils.spawn.find_executable);
+    closes: bug#922332, thanks to John Vandenberg
+  * unfuzz patches
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 17 Feb 2020 14:52:25 +0100
+
+python-pipx (0.12.3.1-1) unstable; urgency=medium
+
+  [ Upstream ]
+  * new release(s)
+
+  [ Jonas Smedegaard ]
+  * build-depend on python3-jinja2
+  * fix support DEB_BUILD_OPTIONS=nocheck
+  * declare compliance with Debian Policy 4.5.0
+  * use unittest to run testsuite
+  * add patch cherry-picked upstream to catch HTTP errors;
+    closes: bug#950074, thanks to Adrian Bunk
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 17 Feb 2020 14:22:32 +0100
+
+# Older entries have been removed from this changelog.
+# To read the complete changelog use `apt changelog pipx`.

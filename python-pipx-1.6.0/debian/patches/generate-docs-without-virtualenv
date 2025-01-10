@@ -1,0 +1,22 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Wed, 29 Sep 2021 20:42:49 -0700
+Subject: docs: Allow gen_doc_pages to run without an installed pipx
+
+Forwarded: https://github.com/pypa/pipx/pull/745
+---
+ scripts/gen_doc_pages.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/gen_doc_pages.py b/scripts/gen_doc_pages.py
+index 38c5672..91f055c 100644
+--- a/scripts/gen_doc_pages.py
++++ b/scripts/gen_doc_pages.py
+@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
+ 
+ 
+ def get_help(cmd: Optional[str]) -> str:
+-    base = ["pipx"]
++    base = [sys.executable, "-m", "pipx"]
+     args = base + ([cmd] if cmd else []) + ["--help"]
+     env_patch = os.environ.copy()
+     env_patch["PATH"] = os.pathsep.join([str(Path(sys.executable).parent)] + env_patch["PATH"].split(os.pathsep))

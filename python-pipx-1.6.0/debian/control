@@ -1,0 +1,48 @@
+Source: python-pipx
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Stefano Rivera <stefanor@debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ pybuild-plugin-pyproject,
+ dh-sequence-python3,
+ mkdocs <!nodoc>,
+ mkdocs-gen-files <!nodoc>,
+ mkdocs-macros-plugin <!nodoc>,
+ mkdocs-material <!nodoc>,
+ python3,
+ python3-argcomplete,
+ python3-argparse-manpage <!nodoc>,
+ python3-hatch-vcs,
+ python3-hatchling,
+ python3-markdown-callouts <!nodoc>,
+ python3-packaging,
+ python3-platformdirs,
+ python3-tomli,
+ python3-userpath
+Standards-Version: 4.6.2
+Vcs-Git: https://salsa.debian.org/python-team/packages/python-pipx.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/python-pipx
+Homepage: https://github.com/pypa/pipx
+Rules-Requires-Root: no
+
+Package: pipx
+Architecture: all
+Depends: python3-venv, ${misc:Depends}, ${python3:Depends}
+Recommends: ${mkdocs:Depends}
+Provides: ${python3:Provides}
+Description: execute binaries from Python packages in isolated environments
+ pipx allows you to...
+ .
+  * Run the latest version of a CLI application from a package
+    in a temporary virtual environment,
+    leaving your system untouched after it finishes.
+  * Install packages to isolated virtual environments,
+    while globally exposing their CLI applications
+    so you can run them from anywhere.
+  * Easily list, upgrade, and uninstall packages
+    that were installed with pipx.
+ .
+ pipx runs with regular user permissions,
+ never calling "sudo pip install".

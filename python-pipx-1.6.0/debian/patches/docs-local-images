@@ -1,0 +1,57 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Wed, 29 Sep 2021 10:19:59 -0700
+Subject: docs: Relative links to images
+
+Use local image assets rather than serving them from the GitHub repo.
+Makes the docs useable offline, and protects the privacy of the readers.
+
+Not forwardable, because this change breaks standalone rendering of
+README.
+
+Forwarded: not-needed
+---
+ README.md              | 6 +++---
+ docs/img/logo.svg      | 1 +
+ docs/img/pipx_demo.gif | 1 +
+ 3 files changed, 5 insertions(+), 3 deletions(-)
+ create mode 120000 docs/img/logo.svg
+ create mode 120000 docs/img/pipx_demo.gif
+
+diff --git a/README.md b/README.md
+index d9d8866..ed96659 100644
+--- a/README.md
++++ b/README.md
+@@ -1,14 +1,14 @@
+ <p align="center">
+ <a href="https://pipx.pypa.io">
+-<img align="center" src="https://github.com/pypa/pipx/raw/main/logo.svg" width="200"/>
++<img align="center" src="img/logo.svg" width="200"/>
+ </a>
+ </p>
+ 
+ # pipx — Install and Run Python Applications in Isolated Environments
+ 
+ <p align="center">
+-<a href="https://github.com/pypa/pipx/raw/main/pipx_demo.gif">
+-<img src="https://github.com/pypa/pipx/raw/main/pipx_demo.gif"/>
++<a href="img/pipx_demo.gif">
++<img src="img/pipx_demo.gif"/>
+ </a>
+ </p>
+ 
+diff --git a/docs/img/logo.svg b/docs/img/logo.svg
+new file mode 120000
+index 0000000..e756466
+--- /dev/null
++++ b/docs/img/logo.svg
+@@ -0,0 +1 @@
++../../logo.svg
+\ No newline at end of file
+diff --git a/docs/img/pipx_demo.gif b/docs/img/pipx_demo.gif
+new file mode 120000
+index 0000000..4266dd9
+--- /dev/null
++++ b/docs/img/pipx_demo.gif
+@@ -0,0 +1 @@
++../../pipx_demo.gif
+\ No newline at end of file

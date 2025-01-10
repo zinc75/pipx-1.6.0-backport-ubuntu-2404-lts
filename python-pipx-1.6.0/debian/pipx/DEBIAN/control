@@ -1,0 +1,24 @@
+Package: pipx
+Source: python-pipx
+Version: 1.6.0-1
+Architecture: all
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Installed-Size: 3442
+Depends: python3-venv, python3-argcomplete, python3-packaging, python3-platformdirs (>= 2.1), python3-tomli | python3-supported-min (>= 3.11), python3-userpath, python3:any
+Section: python
+Priority: optional
+Homepage: https://github.com/pypa/pipx
+Description: execute binaries from Python packages in isolated environments
+ pipx allows you to...
+ .
+  * Run the latest version of a CLI application from a package
+    in a temporary virtual environment,
+    leaving your system untouched after it finishes.
+  * Install packages to isolated virtual environments,
+    while globally exposing their CLI applications
+    so you can run them from anywhere.
+  * Easily list, upgrade, and uninstall packages
+    that were installed with pipx.
+ .
+ pipx runs with regular user permissions,
+ never calling "sudo pip install".
