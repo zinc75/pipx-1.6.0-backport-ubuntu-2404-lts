@@ -123,5 +123,5 @@ Since this is basically only a backport of the .deb available for Ubuntu 24.10 f
 
 ## License
 
-The contents of this repository follow the original MIT licensing of the `pipx` package. Refer to the [`python-pipx-1.6.0/LICENSE`](https://github.com/zinc75/pipx-1.6.0-backport-ubuntu-2404-lts/blob/main/python-pipx-1.6.0/LICENSE`] file in the source directory for more details.
+The contents of this repository follow the original MIT licensing of the `pipx` package. Refer to the [`python-pipx-1.6.0/LICENSE`](https://github.com/zinc75/pipx-1.6.0-backport-ubuntu-2404-lts/blob/main/python-pipx-1.6.0/LICENSE] file in the source directory for more details.
 
