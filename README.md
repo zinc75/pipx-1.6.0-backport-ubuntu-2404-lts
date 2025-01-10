@@ -80,18 +80,38 @@ If you prefer to build the package from source, follow these steps:
    dpkg-source -x python-pipx_1.6.0-1.dsc
    ```
 
-3. Install build dependencies:
+   Alternatively, if you fear I might have modified anything in the source from the official 24.10 repository: [http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/](http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/) , you can also download the files directly from there :
+
+   ```bash
+   dget -u  http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/python-pipx_1.6.0-1.dsc
+   ```
+
+4. Install build dependencies:
    ```bash
    cd python-pipx-1.6.0
    sudo apt build-dep .
    ```
 
-4. Build the package:
+5. Build the package:
    ```bash
    dpkg-buildpackage -us -uc
    ```
 
-5. Install the generated `.deb` file as described above.
+6. Install the generated `.deb` file as described above :
+
+   ```bash
+   sudo dpkg -i python-pipx_1.6.0-1ubuntu24.04-backport1_all.deb
+   ```
+
+3. Resolve any missing dependencies:
+   ```bash
+   sudo apt -f install
+   ```
+
+4. Verify the installation:
+   ```bash
+   pipx --version
+   ```
 
 ---
 
