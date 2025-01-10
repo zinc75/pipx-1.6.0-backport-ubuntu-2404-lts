@@ -80,7 +80,7 @@ If you prefer to build the package from source, follow these steps:
    dpkg-source -x python-pipx_1.6.0-1.dsc
    ```
 
-   Alternatively, if you fear I might have modified anything in the source from the official 24.10 repository: [http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/](http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/) , you can also download the files directly from there :
+   Alternatively, if you fear I might have modified anything in the source from the official 24.10 repository (I've not, easy to check with a diff) : [http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/](http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/) , you can also download the files directly from there :
 
    ```bash
    dget -u  http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pipx/python-pipx_1.6.0-1.dsc
