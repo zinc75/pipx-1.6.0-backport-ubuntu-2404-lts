@@ -117,7 +117,7 @@ If you prefer to build the package from source, follow these steps:
 
 ## Contribution and Feedback
 
-If you encounter any issues or have suggestions for improvement, feel free to open an issue or submit a pull request to this repository.
+Since it's only a repackaging of the .deb available for Ubuntu 24.10 of the pipx package and that I'm not a pipx developer, feedback on the usage of pipx should be redirected to the pypa/pipx repository : https://github.com/pypa/pipx/issues . 
 
 ---
 
