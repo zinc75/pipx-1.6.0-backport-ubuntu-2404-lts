@@ -1,0 +1,1 @@
+Since this is basically only a backport of the .deb available for Ubuntu 24.10 for the pipx package, and since I'm neither an Ubuntu dev nor a pipx developer, feedback on the usage of pipx should be redirected to the pypa/pipx repository: https://github.com/pypa/pipx/issues, following the rules available in the `python-pipx-1.6.0/CONTRIBUTING.md` available in this repository.
