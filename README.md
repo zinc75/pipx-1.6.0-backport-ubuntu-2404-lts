@@ -123,5 +123,5 @@ Since it's only a repackaging of the .deb available for Ubuntu 24.10 of the pipx
 
 ## License
 
-The contents of this repository follow the original licensing of the `pipx` package. Refer to the `LICENSE` file in the source directory for more details.
+The contents of this repository follow the original MIT licensing of the `pipx` package. Refer to the `LICENSE` file in the source directory for more details.
 
